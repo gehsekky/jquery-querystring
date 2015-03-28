@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>jquery.querystring tests</title>
+</head>
+<body>
+	<div id="main">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+		<div class="four"></div>
+		<div class="five"></div>
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.querystring.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			console.log("running doc.ready");
+			
+			if ($.querystring('a') === "") {
+				window.location.href = "?a=1&b=2&c=3";
+			}
+			
+			console.log("about to write into divs");
+
+			$(".one").html("a = " + $.querystring("a"));
+			$(".two").html("b = " + $.querystring("b"));
+			$(".three").html("c = " + $.querystring("c"));
+			$(".four").html("d = " + $.querystring("d"));
+			$(".five").html("e = " + $.querystring(""));
+		});
+	</script>
+</body>
